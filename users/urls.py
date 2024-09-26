@@ -1,4 +1,4 @@
-from user.apps import UserConfig
+from users.apps import UserConfig
 
 app_name = UserConfig.name
 urlpatterns = [

@@ -4,15 +4,16 @@ NULLABLE = {"blank": True, "null": True}
 
 
 class NetworkNode(models.Model):
+    """Создаем модель Узла сети."""
     LEVEL_CHOICES = (
         (0, 'Завод'),
         (1, 'Розничная сеть'),
         (2, 'Индивидуальный предприниматель'),
     )
-    # Название
+    # Контакты сети
     name = models.CharField(max_length=100, verbose_name='Название')
     email = models.EmailField(max_length=100, unique=True)
-    country = models.FloatField(max_length=100, verbose_name='Страна')
+    country = models.CharField(max_length=100, verbose_name='Страна')
     city = models.CharField(max_length=100, verbose_name='Город')
     street = models.CharField(max_length=100, verbose_name='Улица')
     house_number = models.CharField(max_length=10, verbose_name='Номер дома')
@@ -30,6 +31,7 @@ class NetworkNode(models.Model):
 
 
 class Product(models.Model):
+    """Создаем модель продукта."""
     node = models.ForeignKey(NetworkNode, related_name='products', on_delete=models.CASCADE)
     product_name = models.CharField(max_length=100, verbose_name='Название продукта')
     product_model = models.CharField(max_length=100, verbose_name='Модель продукта')
