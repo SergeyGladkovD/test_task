@@ -4,7 +4,7 @@ from network.views import NetworkNodeViewSet
 
 app_name = NetworkConfig.name
 router = DefaultRouter()
-router.register(r'network', NetworkNodeViewSet, basename='network')
+router.register(r'', NetworkNodeViewSet, basename='network')
 
 urlpatterns = [
 
